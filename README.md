@@ -8,16 +8,6 @@
 Генерация и экспорт CDR-отчета в CSV.
 REST API для взаимодействия с данными.
 
-## REST API Эндпоинты
-### CDR Контроллер (Call Data Record)
-1. Генерация CDR-отчета по абоненту за период
-URL: POST /api/cdr/generateReport
-Описание: Генерирует CDR-отчет по указанному абоненту за определенный временной интервал.
-Параметры запроса:
-phoneNumber (String) – номер телефона абонента
-startDate (String) – начало периода (yyyy-MM-ddTHH:mm:ss)
-endDate (String) – конец периода (yyyy-MM-ddTHH:mm:ss)
-
 ## Запуск проекта:
 mvn spring-boot:run
 ### Приложение будет доступно по адресу:
@@ -27,6 +17,16 @@ http://localhost:8080
 Используется H2 Database (in-memory).
 Консоль доступна по адресу: http://localhost:8080/h2-console
 JDBC URL: jdbc:h2:mem:testdb
+
+## REST API Эндпоинты
+### CDR Контроллер (Call Data Record)
+1. Генерация CDR-отчета по абоненту за период
+URL: POST /api/cdr/generateReport
+Описание: Генерирует CDR-отчет по указанному абоненту за определенный временной интервал.
+Параметры запроса:
+phoneNumber (String) – номер телефона абонента
+startDate (String) – начало периода (yyyy-MM-ddTHH:mm:ss)
+endDate (String) – конец периода (yyyy-MM-ddTHH:mm:ss)
 
 ### Пример запроса:
 POST "http://localhost:8080/api/cdr/generateReport?phoneNumber=79991112233&startDate=2024-03-01T00:00:00&endDate=2024-03-31T23:59:59"
@@ -38,6 +38,7 @@ POST "http://localhost:8080/api/cdr/generateReport?phoneNumber=79991112233&start
 {
     "error": "Неверный формат дат. Пожалуйста, используйте формат 'yyyy-MM-ddTHH:mm:ss'."
 }
+
 ### UDR Контроллер (Usage Data Report)
 2. Получение UDR-отчета за месяц
 URL: GET /api/udr/byMonth/{msisdn}
