@@ -145,24 +145,43 @@ GET "http://localhost:8080/api/udr/byPeriod/79991112233?startDate=2024-03-01T00:
 ## Архитектура проекта:
 
  com.example.springapi
+ 
 ├──  api.controller → REST-контроллеры
+
 │   ├── CDRController.java → Обработка CDR-отчетов
+
 │   ├── UDRController.java → Обработка UDR-отчетов
+
 │
+
 ├──  api.model → Модели данных
+
 │   ├── CDR.java → Модель CDR-записи
+
 │   ├── UDR.java → Модель UDR-отчета
+
 │   ├── DataLoader.java → Загрузчик данных в БД
+
 │   ├── User.java → Модель абонента
+
 ├──  api.repos → Репозитории
+
 │   ├── CDRRepository.java → Запросы к CDR в БД
+
 |   |── SubscriberRepository.java → Запросы к User в БД
+
 │
+
 ├──  service → Логика приложения
+
 │   ├── CDRGeneratorService.java → Генерация CDR
+
 │   ├── CDRReportService.java → Создание отчетов
+
 │   ├── UDRService.java → Формирование UDR
+
 │
+
 └──  SpringApiApplication.java → Запуск приложения
 
 Сгенерированные CDR-отчеты хранятся в папке /reports.
