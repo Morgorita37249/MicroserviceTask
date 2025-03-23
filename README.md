@@ -168,7 +168,7 @@ GET "http://localhost:8080/api/udr/byPeriod/79991112233?startDate=2024-03-01T00:
 
 │   ├── CDRRepository.java → Запросы к CDR в БД
 
-|   |── SubscriberRepository.java → Запросы к User в БД
+│   ├── SubscriberRepository.java → Запросы к User в БД
 
 │
 
