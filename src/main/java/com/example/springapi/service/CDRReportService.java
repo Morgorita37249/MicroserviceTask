@@ -13,6 +13,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Сервис для генерации отчетов о звонках (CDR) для абонента в заданном диапазоне дат.
+ * Этот сервис генерирует отчет в формате CSV, который содержит информацию о звонках для заданного номера телефона.
+ */
 @Service
 public class CDRReportService {
 
@@ -20,7 +24,17 @@ public class CDRReportService {
 
     @Autowired
     private CDRRepository cdrRepository;
-
+    /**
+     * Генерирует отчет о звонках (CDR) в формате CSV для заданного абонента и диапазона дат.
+     * Отчет сохраняется в директории "reports" с уникальным именем файла, включающим номер телефона абонента и уникальный ID запроса.
+     *
+     * @param phoneNumber номер телефона абонента, для которого генерируется отчет.
+     * @param startDate начальная дата и время диапазона, для которого генерируется отчет.
+     * @param endDate конечная дата и время диапазона, для которого генерируется отчет.
+     * @param requestId уникальный идентификатор запроса для создания уникального имени файла.
+     * @return {@code true}, если отчет был успешно сгенерирован, {@code false} в случае отсутствия данных.
+     * @throws IOException если произошла ошибка при записи в файл отчета.
+     */
     public boolean generateReport(String phoneNumber, LocalDateTime startDate, LocalDateTime endDate, String requestId) throws IOException {
 
         try {

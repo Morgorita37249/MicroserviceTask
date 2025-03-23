@@ -10,6 +10,4 @@ public interface CDRRepository extends JpaRepository<CDR,Integer> {
 
     List<CDR> findByNumberAndStartTimeBetween(String phoneNumber, LocalDateTime from, LocalDateTime to);
 
-    List<CDR> findByStartTimeBetween(LocalDateTime startTime, LocalDateTime endTime);
-
 }
